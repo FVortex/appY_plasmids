@@ -208,7 +208,7 @@ wind <- 100
 plot(appY_green_mpot, type = 'l', col = 'lightgrey', main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
 lines(rollapply(appY_green_mpot, wind*coeff, mean), col = 1, lwd =2)
 segments(x0 =coeff*(bg1_green), x1=coeff*(egfp_green), y0 = -.068, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff*(egfp_green), x1=coeff*(bg2_with_primers_green), y0 = -.068, y1 = y, col ='firebrick', lwd =3)
+segments(x0 =coeff*(egfp_green), x1=coeff*(bg2_with_primers_green), y0 = -.068, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff*(bg3_green), x1=coeff*(can_resist_green), y0 = -.068, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green*coeff, col = 'darkred', lty = 3)
 
@@ -216,7 +216,7 @@ plot(appY_green_bend, type = 'l', col = 'lightgrey', main = 'Bendability', ylim 
 lines(rollapply(appY_green_bend, wind, mean), col = 1, lwd =2)
 y = min(appY_green_bend)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -225,7 +225,7 @@ plot(appY_green_e0, type = 'l', col = 'lightgrey', main = 'Open state activation
 lines(rollapply(appY_green_e0, wind, mean), col = 1, lwd =2)
 y=min(appY_green_e0)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -234,7 +234,7 @@ plot(appY_green_gc, type = 'l', col = 'lightgrey', main = 'GC-content', ylim = r
 lines(rollapply(appY_green_gc, wind, mean), col = 1, lwd =2)
 y=min(appY_green_gc)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -242,7 +242,7 @@ plot(appY_green_sidd_online, type = 'l', col = 1, main = 'SIDD', xlab = 'Sequenc
 
 y=min(appY_green_sidd_online)-.02
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -258,7 +258,7 @@ wind <- 100
 plot(appY_red_mpot, type = 'l', col = 'lightgrey', main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
 lines(rollapply(appY_red_mpot, wind*coeff, mean), col = 1, lwd =2)
 segments(x0 =coeff*(bg1_red), x1=coeff*(egfp_red), y0 = -.068, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff*(egfp_red), x1=coeff*(bg2_with_primers_red), y0 = -.068, y1 = y, col ='firebrick', lwd =3)
+segments(x0 =coeff*(egfp_red), x1=coeff*(bg2_with_primers_red), y0 = -.068, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff*(bg3_red), x1=coeff*(can_resist_red), y0 = -.068, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red*coeff, col = 'darkred', lty = 3)
 
@@ -266,7 +266,7 @@ plot(appY_red_bend, type = 'l', col = 'lightgrey', main = 'Bendability', ylim = 
 lines(rollapply(appY_red_bend, wind, mean), col = 1, lwd =2)
 y = min(appY_red_bend)
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
 
@@ -275,7 +275,7 @@ plot(appY_red_e0, type = 'l', col = 'lightgrey', main = 'Open state activation e
 lines(rollapply(appY_red_e0, wind, mean), col = 1, lwd =2)
 y=min(appY_red_e0)
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
 
@@ -284,7 +284,7 @@ plot(appY_red_gc, type = 'l', col = 'lightgrey', main = 'GC-content', ylim = ran
 lines(rollapply(appY_red_gc, wind, mean), col = 1, lwd =2)
 y=min(appY_red_gc)
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_green), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_green), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
 
@@ -292,7 +292,7 @@ plot(appY_red_sidd_online, type = 'l', col = 1, main = 'SIDD', xlab = 'Sequence 
 
 y=min(appY_red_sidd_online)-.02
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (egfp_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (egfp_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
 
@@ -395,7 +395,7 @@ wind <- 100
 #3
 
 
-plot(empty_mpot, type = 'l', col = 'lightgrey', main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(appY_red_mpot))
+plot(empty_mpot, type = 'l', col = 'lightgrey', main = 'Empty:   Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(appY_red_mpot))
 lines(rollapply(empty_mpot, wind*coeff_empty, mean), col = 1, lwd =2)
 y = min(appY_red_mpot)
 segments(x0 =coeff_empty*(bg1_empty), x1=coeff_empty*(egfp_empty), y0 = y, y1 = y, col ='darkgreen', lwd =3)
@@ -434,11 +434,11 @@ segments(x0 = (bg1_empty), x1= (egfp_empty), y0 = y, y1 = y, col ='darkgreen', l
 segments(x0 = (bg2_with_primers_empty), x1= (mCherry_empty), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_empty), x1= (can_resist_empty), y0 = y, y1 = y, col ='darkblue', lwd =3)
 #red
-plot(appY_red_mpot, type = 'l', col = 'lightgrey', main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(appY_red_mpot))
+plot(appY_red_mpot, type = 'l', col = 'lightgrey', main = 'appy_red:   Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(appY_red_mpot))
 lines(rollapply(appY_red_mpot, wind*coeff_red, mean), col = 1, lwd =2)
 y = min(appY_red_mpot)
 segments(x0 =coeff_red*(bg1_red), x1=coeff_red*(egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff_red*(bg2_with_primers_red), x1=coeff_red*(mCherry_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 =coeff_red*(bg2_with_primers_red), x1=coeff_red*(mCherry_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff_red*(bg3_red), x1=coeff_red*(can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red*coeff_red, col = 'darkred', lty = 3)
 
@@ -478,11 +478,11 @@ abline(v = starts_red, col = 'darkred', lty = 3)
 
 
 #2
-plot(appY_green_mpot, type = 'l', col = 'lightgrey', main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(appY_red_mpot))
+plot(appY_green_mpot, type = 'l', col = 'lightgrey', main = 'appy_green:   Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(appY_red_mpot))
 lines(rollapply(appY_green_mpot, wind*coeff_green, mean), col = 1, lwd =2)
 y = min(appY_red_mpot)
 segments(x0 =coeff_green*(bg1_green), x1=coeff_green*(egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff_green*(bg2_with_primers_green), x1=coeff_green*(mCherry_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 =coeff_green*(bg2_with_primers_green), x1=coeff_green*(mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff_green*(bg3_green), x1=coeff_green*(can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green*coeff_green, col = 'darkred', lty = 3)
 
@@ -490,7 +490,7 @@ plot(appY_green_bend, type = 'l', col = 'lightgrey', main = 'Bendability', ylim 
 lines(rollapply(appY_green_bend, wind, mean), col = 1, lwd =2)
 y = min(appY_red_bend)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -499,7 +499,7 @@ plot(appY_green_e0, type = 'l', col = 'lightgrey', main = 'Open state activation
 lines(rollapply(appY_green_e0, wind, mean), col = 1, lwd =2)
 y=min(appY_red_e0)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -507,7 +507,7 @@ plot(appY_green_gc, type = 'l', col = 'lightgrey', main = 'GC-content', ylim = r
 lines(rollapply(appY_green_gc, wind, mean), col = 1, lwd =2)
 y=min(appY_red_gc)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -515,7 +515,7 @@ plot(appY_green_sidd_online, type = 'l', col = 'lightgrey', main = 'SIDD', xlab 
 lines(rollapply(appY_green_sidd_online, wind, mean), col = 1, lwd =2)
 y=min(appY_red_sidd_online)-0.02
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -525,7 +525,7 @@ abline(v = starts_green, col = 'darkred', lty = 3)
 
 
 
-legend('topright', cex = 0.7, legend = c('egfp', 'mCherry', 'canamycine\n resistence'), bty ='n', lty = 1, lwd = 2,col =  c('darkgreen', 'darkred', 'royal blue'))
+legend('topright', cex = 1, legend = c('egfp', 'mCherry', 'canamycine\n resistence', 'transcription\n starts'), bty ='n', lty = c(1,1,1,2), lwd = 2,col =  c('darkgreen', 'darkred', 'darkblue', 'red'))
 
 dev.off()
 
@@ -536,11 +536,11 @@ int <- (bg1_red-100):(mCherry_red+100)
 #sliding window size
 wind <- 100
 
-plot(int*coeff_empty, empty_mpot[int*coeff_empty], type = 'l', col = 1, main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
+plot(int*coeff_empty, empty_mpot[int*coeff_empty], type = 'l', col = 1, main = 'Empty:   Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
 #lines(rollapply(empty_mpot, wind*coeff_empty, mean), col = 1, lwd =2)
 y = min(empty_mpot)
 segments(x0 =coeff_empty*(bg1_empty), x1=coeff_empty*(egfp_empty), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff_empty*(egfp_empty), x1=coeff_empty*(bg2_with_primers_empty), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 =coeff_empty*(bg2_with_primers_empty), x1=coeff_empty*(mCherry_empty), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff_empty*(bg3_empty), x1=coeff_empty*(can_resist_empty), y0 = y, y1 = y, col ='darkblue', lwd =3)
 
 
@@ -548,7 +548,7 @@ plot(int, empty_bend[int], type = 'l', col = 1, main = 'Bendability', ylim = ran
 #lines(rollapply(empty_bend, wind, mean), col = 1, lwd =2)
 y = min(empty_bend)
 segments(x0 = (bg1_empty), x1= (egfp_empty), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_empty), x1= (bg2_with_primers_empty), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_empty), x1= (mCherry_empty), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_empty), x1= (can_resist_empty), y0 = y, y1 = y, col ='darkblue', lwd =3)
 
 
@@ -556,7 +556,7 @@ plot(int, empty_e0[int], type = 'l', col = 1, main = 'Open state activation ener
 #lines(rollapply(empty_e0, wind, mean), col = 1, lwd =2)
 y = min(empty_e0)
 segments(x0 = (bg1_empty), x1= (egfp_empty), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_empty), x1= (bg2_with_primers_empty), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_empty), x1= (mCherry_empty), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_empty), x1= (can_resist_empty), y0 = y, y1 = y, col ='darkblue', lwd =3)
 
 
@@ -565,21 +565,21 @@ plot(int, empty_gc[int], type = 'l', col = 1, main = 'GC-content', ylim = range(
 #lines(rollapply(empty_gc, wind, mean), col = 1, lwd =2)
 y = min(empty_gc)
 segments(x0 = (bg1_empty), x1= (egfp_empty), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_empty), x1= (bg2_with_primers_empty), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_empty), x1= (mCherry_empty), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_empty), x1= (can_resist_empty), y0 = y, y1 = y, col ='darkblue', lwd =3)
 
 
 plot(int, empty_sidd_online[int], type = 'l', col = 1,lwd =2, main = 'SIDD', xlab = 'Sequence (nts)', ylab = 'Opening probability', ylim = c(0,1))
 y=min(empty_sidd_online)-0.02
 segments(x0 = (bg1_empty), x1= (egfp_empty), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_empty), x1= (bg2_with_primers_empty), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_empty), x1= (mCherry_empty), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_empty), x1= (can_resist_empty), y0 = y, y1 = y, col ='darkblue', lwd =3)
 
-plot(int*coeff_red, appY_red_mpot[int*coeff_red], type = 'l', col = 1, main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
+plot(int*coeff_red, appY_red_mpot[int*coeff_red], type = 'l', col = 1, main = 'appY_red:   Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
 #lines(rollapply(appY_red_mpot, wind*coeff_red, mean), col = 1, lwd =2)
 y = min(appY_red_mpot)
 segments(x0 =coeff_red*(bg1_red), x1=coeff_red*(egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff_red*(egfp_red), x1=coeff_red*(bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 =coeff_red*(bg2_with_primers_red), x1=coeff_red*(mCherry_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff_red*(bg3_red), x1=coeff_red*(can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red*coeff_red, col = 'darkred', lty = 3)
 
@@ -587,7 +587,7 @@ plot(int, appY_red_bend[int], type = 'l', col = 1, main = 'Bendability', ylim = 
 #lines(rollapply(appY_red_bend, wind, mean), col = 1, lwd =2)
 y = min(appY_red_bend)
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_red), x1= (mCherry_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
 
@@ -595,7 +595,7 @@ plot(int, appY_red_e0[int], type = 'l', col = 1, main = 'Open state activation e
 #lines(rollapply(appY_red_e0, wind, mean), col = 1, lwd =2)
 y = min(appY_red_e0)
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_red), x1= (mCherry_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
 
@@ -604,25 +604,26 @@ plot(int, appY_red_gc[int], type = 'l', col = 1, main = 'GC-content', ylim = ran
 #lines(rollapply(appY_red_gc, wind, mean), col = 1, lwd =2)
 y = min(appY_red_gc)
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_red), x1= (mCherry_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
+
 
 plot(int, appY_red_sidd_online[int], type = 'l', col = 1, main = 'SIDD', xlab = 'Sequence (nts)', ylab = 'Opening probability', ylim = c(0,1))
 #lines(rollapply(appY_red_sidd_online, wind, mean), col = 1, lwd =2)
 y=min(appY_red_sidd_online)-0.02
 segments(x0 = (bg1_red), x1= (egfp_red), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_red), x1= (bg2_with_primers_red), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_red), x1= (mCherry_red), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_red), x1= (can_resist_red), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_red, col = 'darkred', lty = 3)
 
 #2
 
-plot(int*coeff_green, appY_green_mpot[int*coeff_green], type = 'l', col = 1, main = 'Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
+plot(int*coeff_green, appY_green_mpot[int*coeff_green], type = 'l', col = 1, main = 'appy_green:   Electrostatic potential', xlab = 'Sequence (angstrom)', ylab = 'EP value', ylim = range(empty_mpot))
 #lines(rollapply(appY_green_mpot, wind*coeff_green, mean), col = 1, lwd =2)
 y = min(appY_green_mpot )
 segments(x0 =coeff_green*(bg1_green), x1=coeff_green*(egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff_green*(egfp_green), x1=coeff_green*(bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 =coeff_green*(egfp_green), x1=coeff_green*(bg2_with_primers_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff_green*(bg3_green), x1=coeff_green*(can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green*coeff_green, col = 'darkred', lty = 3)
 
@@ -630,7 +631,7 @@ plot(int, appY_green_bend[int], type = 'l', col = 1, main = 'Bendability', ylim 
 #lines(rollapply(appY_green_bend, wind, mean), col = 1, lwd =2)
 y = min(appY_green_bend )
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -638,7 +639,7 @@ plot(int, appY_green_e0[int], type = 'l', col = 1, main = 'Open state activation
 #lines(rollapply(appY_green_e0, wind, mean), col = 1, lwd =2)
 y = min(appY_green_e0)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -647,7 +648,7 @@ plot(int, appY_green_gc[int], type = 'l', col = 1, main = 'GC-content', ylim = r
 #lines(rollapply(appY_green_gc, wind, mean), col = 1, lwd =2)
 y = min(appY_green_gc)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 
@@ -655,7 +656,7 @@ plot(int, appY_green_sidd_online[int], type = 'l', col = 1, main = 'SIDD', xlab 
 #lines(rollapply(appY_green_sidd_online, wind, mean), col = 1, lwd =2)
 y=min(appY_green_sidd_online)-0.02
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green, col = 'darkred', lty = 3)
 #3
@@ -663,7 +664,7 @@ abline(v = starts_green, col = 'darkred', lty = 3)
 
 
 
-legend('topright', cex = 0.5, legend = c('egfp', 'mCherry', 'canamycine\n resistence'), bty ='n', lty = 1, lwd = 2,col =  c('darkgreen', 'darkred', 'royal blue'))
+legend('topright', cex = 1, legend = c('egfp', 'mCherry', 'canamycine\n resistence'), bty ='n', lty = 1, lwd = 2,col =  c('darkgreen', 'darkred', 'royal blue'))
 
 dev.off()
 plot(appY_red_mpot, type = 'l', col = 'red', main = 'SIDD', xlab = 'Sequence (nts)', ylab = 'Opening probability', ylim = c(0,1))
@@ -696,5 +697,5 @@ plot(appY_green_bend, type = 'l', col = 'grey60', main = 'appY green bendability
 lines(rollapply(appY_green_bend, wind, sd)^2, col = 2)
 y = min(appY_green_bend)
 segments(x0 = (bg1_green), x1= (egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 = (bg2_with_primers_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='firebrick', lwd =3)
+segments(x0 = (bg2_with_primers_green), x1= (bg2_with_primers_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 = (bg3_green), x1= (can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
