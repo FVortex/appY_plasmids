@@ -386,9 +386,12 @@ legend('center', legend = c('egfp', 'mCherry', 'canamycine resistence'), bty ='n
 dev.off()
 
 #comparing paired against each other
-svg('/home/jane/Документы/Misha/mol_a_2018/masterplot.svg', height = 10, width = 15)
+#svg('/home/jane/Документы/Misha/mol_a_2018/masterplot.svg', height = 10, width = 15)
+png('/home/jane/Документы/Misha/mol_a_2018/masterplot.png', height = 1000*1.5, width = 1500*1.5, res = 150)
+
 par(mfrow = c (3,5),
-    mar =rep(1.75, 4))
+    mar = rep(2, 4),
+    oma = rep(2, 4))
 #sliding window size
 wind <- 100
 
@@ -529,9 +532,11 @@ legend('topright', cex = 1, legend = c('egfp', 'mCherry', 'canamycine\n resisten
 
 dev.off()
 
-svg('/home/jane/Документы/Misha/mol_a_2018/masterplot_fragment.svg', height = 10, width = 15)
+#svg('/home/jane/Документы/Misha/mol_a_2018/masterplot_fragment.svg', height = 10, width = 15)
+png('/home/jane/Документы/Misha/mol_a_2018/masterplot_fragment.png', height = 1000*1.5, width = 1500*1.5, res = 150)
 par(mfrow = c (3,5),
-    mar = rep(1.75, 4))
+    mar = rep(2, 4),
+    oma = rep(2, 4))
 int <- (bg1_red-100):(mCherry_red+100)
 #sliding window size
 wind <- 100
@@ -623,7 +628,7 @@ plot(int*coeff_green, appY_green_mpot[int*coeff_green], type = 'l', col = 1, mai
 #lines(rollapply(appY_green_mpot, wind*coeff_green, mean), col = 1, lwd =2)
 y = min(appY_green_mpot )
 segments(x0 =coeff_green*(bg1_green), x1=coeff_green*(egfp_green), y0 = y, y1 = y, col ='darkgreen', lwd =3)
-segments(x0 =coeff_green*(egfp_green), x1=coeff_green*(bg2_with_primers_green), y0 = y, y1 = y, col ='darkred', lwd =3)
+segments(x0 =coeff_green*(bg2_with_primers_green), x1=coeff_green*(mCherry_green), y0 = y, y1 = y, col ='darkred', lwd =3)
 segments(x0 =coeff_green*(bg3_green), x1=coeff_green*(can_resist_green), y0 = y, y1 = y, col ='darkblue', lwd =3)
 abline(v = starts_green*coeff_green, col = 'darkred', lty = 3)
 
@@ -664,7 +669,7 @@ abline(v = starts_green, col = 'darkred', lty = 3)
 
 
 
-legend('topright', cex = 1, legend = c('egfp', 'mCherry', 'canamycine\n resistence'), bty ='n', lty = 1, lwd = 2,col =  c('darkgreen', 'darkred', 'royal blue'))
+legend('topright', cex = 1, legend = c('egfp', 'mCherry', 'canamycine\n resistence', 'transcription\n starts'), bty ='n', lty = c(1,1,1,2), lwd = 2,col =  c('darkgreen', 'darkred', 'darkblue', 'red'))
 
 dev.off()
 plot(appY_red_mpot, type = 'l', col = 'red', main = 'SIDD', xlab = 'Sequence (nts)', ylab = 'Opening probability', ylim = c(0,1))
