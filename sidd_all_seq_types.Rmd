@@ -1,0 +1,135 @@
+---
+title: "sidd_all_seq_types.Rmd"
+author: "Mikhail Orlov"
+date: '13 октября 2017 г '
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown SIDD for all sequence types
+Reading in E. coli K12 genome (GenBank Accesion U00096.2), creating reverse complement genome and tranformation genome into character form 
+
+```{r}
+library(seqinr)
+library(Biostrings)
+e.coli_U00096.2<-unlist(read.fasta('/home/jane/Документы/Misha/Lab/mol_a-16/Genome_to_dataset_pro_U00096.2.txt', seqonly = T))
+reverseComplement_e.coli_U00096.2<-as.character(reverseComplement(DNAString(e.coli_U00096.2)))
+
+load('/home/jane/Загрузки/spline_dataset_pro.Rdata')
+load('/home/jane/Загрузки/spline_dataset_notpro.Rdata')
+load('/home/jane/Загрузки/spline_dataset_gen.Rdata')
+load('/home/jane/Загрузки/spline_dataset_isl.Rdata')
+load('/home/jane/Загрузки/dataset_lowscore.Rdata')
+
+
+which.experimental <- which(sapply(dataset_pro, function(x) {(x$evidence == 'experimental')}))
+exptsss <- sapply(dataset_pro, function(x) {x$tss})[which.experimental]
+expstrands <- sapply(dataset_pro, function(x) {x$strand})[which.experimental]
+
+nottsss <- sapply(dataset_notpro, function(x) {x$tss})
+notstrands <- sapply(dataset_notpro, function(x) {x$strand})
+
+gentsss <- sapply(dataset_gen, function(x) {x$tss})
+genstrands <- sapply(dataset_pro, function(x) {x$strand})
+
+isltsss <- sapply(dataset_isl, function(x) {x$tss})
+islstrands <- sapply(dataset_isl, function(x) {x$strand})
+
+lowscoretsss <- sapply(dataset_lowscore, function(x) {x$tss}) #only some are to be used
+lowscorestrands <- sapply(dataset_lowscore, function(x) {x$strand})
+
+
+expseqs <- c()
+for (i in seq_along(exptsss)) {
+    tmp <- substr(e.coli_U00096.2, start = (exptsss[i]-1000), stop = (exptsss[i]+1000))
+    expseqs <- c(expseqs, tmp)
+}
+  
+notseqs <- c()
+for (i in seq_along(nottsss)) {
+    tmp <- substr(e.coli_U00096.2, start = (nottsss[i]-1000), stop = (nottsss[i]+1000))
+    notseqs <- c(notseqs, tmp)
+}
+
+genseqs <- c()
+for (i in seq_along(gentsss)) {
+    tmp <- substr(e.coli_U00096.2, start = (gentsss[i]-1000), stop = (gentsss[i]+1000))
+    genseqs <- c(genseqs, tmp)
+}
+
+islseqs <- c()
+for (i in seq_along(isltsss)) {
+    tmp <- substr(e.coli_U00096.2, start = (isltsss[i]-1000), stop = (isltsss[i]+1000))
+    islseqs <- c(islseqs, tmp)
+}
+
+lowscoreseqs <- c()
+for (i in seq_along(lowscoretsss)[1:2000]) {
+    tmp <- substr(e.coli_U00096.2, start = (lowscoretsss[i]-1000), stop = (lowscoretsss[i]+1000))
+    lowscoreseqs <- c(lowscoreseqs, tmp)
+}
+  
+```
+
+
+```{r Sequences statistics}
+
+list_seqs <- grep(pattern = '*seqs', x = ls(), value = T)
+
+
+list_gcs <- sapply(list_seqs, function(x) {GC(unlist(strsplit(paste0(get(x), collapse = ''), split = '')))})
+
+barplot(list_gcs)
+
+list_gc1 <- sapply(list_seqs, function(x) {GC1(unlist(strsplit(paste0(get(x), collapse = ''), split = '')))})
+list_gc2 <- sapply(list_seqs, function(x) {GC2(unlist(strsplit(paste0(get(x), collapse = ''), split = '')))})
+list_gc3 <- sapply(list_seqs, function(x) {GC3(unlist(strsplit(paste0(get(x), collapse = ''), split = '')))})
+
+par(mfrow = c(1,5),
+    mar = rep(1,4))
+for (i in seq_along(list_gc1)) {
+  barplot(c(list_gc1[i], list_gc2[i],list_gc3[i]), ylim = c(0.4,.55), main = names(list_gc1[i]))
+}
+
+#aug presence
+
+grepl(pattern = 'AGG', get(list_seqs[i]))
+
+library(stringr)
+
+# Count the number of 'a's in each element of string
+
+list_aug_occurences <- list()
+for (i in seq_along(list_seqs)) {
+  tmp <- sapply(get(list_seqs[i]), function (x) {str_count(x, pattern = 'TATAAT')})
+  names(tmp) <- NULL
+  list_aug_occurences[[i]] <- tmp
+}
+
+par(mfrow = c(1,5))
+sapply(list_aug_occurences, function(x) {barplot(unlist(x), ylim = c(0, 85))})
+
+barplot(list_aug_occurences[[1]])
+  number.of.AUG <- lapply(get(list_seqs[1]), function (x) {str_count(x, pattern = 'AUG')})
+number.of.AUG <- lapply(get(list_seqs[2]), function (x) {str_count(x, pattern = 'AAA')})
+
+q.data
+
+#plot(1:nchar(e.coli_U00096.2))
+```
+
+
+```{r Writing fastas}
+
+dir.create('/home/jane/Документы/Misha/mol_a_2018/fastas_exp_pro')
+
+for (i in seq_along(expseqs)){
+  if (expstrands[i] == 'forward'){
+    write.fasta(sequences = expseqs[i], file.out = paste0('/home/jane/Документы/Misha/mol_a_2018/fastas_exp_pro/', 'exp_seqs_', i), names = NULL)
+  }
+}
+```
+
