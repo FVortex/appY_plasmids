@@ -592,3 +592,120 @@ dev.off()
 #tanglegram(dend1 = ward_all_4_gc1 %>% as.dendrogram, dend2 = ward_all_4_E01 %>% as.dendrogram)
 ```
 
+```{r substring occurences}
+library(ngram)
+e.coli_b.subtilis_non_proms <- c(e.coli_non_proms, b.subtilis_non_proms)
+
+#reversed version is added since the library do not consider reversed substrings
+e.coli_proms_ng6 <- ngram(str = paste0(c(unlist(e.coli_proms), rev(unlist(e.coli_proms))), collapse = ' '), n = 6)
+#e.coli_non_proms_ng6 <- ngram(str = paste0(c(unlist(e.coli_non_proms), rev(unlist(e.coli_non_proms))), collapse = ' '), n = 6)
+e.coli_non_proms_ng6 <- ngram(str = paste0(c(unlist(e.coli_non_proms), rev(unlist(e.coli_non_proms))), collapse = ' '), n = 6)
+
+b.subtilis_proms_ng6 <- ngram(str = paste0(c(unlist(b.subtilis_proms), rev(unlist(b.subtilis_proms))), collapse = ' '), n = 6)
+b.subtilis_non_proms_ng6 <- ngram(str = paste0(c(unlist(b.subtilis_non_proms), rev(unlist(b.subtilis_non_proms))), collapse = ' '), n = 6)
+
+e.coli_b.subtilis_proms_ng6 <- ngram(str = paste0(c(unlist(e.coli_b.subtilis_proms), rev(e.coli_b.subtilis_proms)), collapse = ' '), n = 6)
+
+e.coli_b.subtilis_non_proms_ng6 <- ngram(str = paste0(c(unlist(e.coli_b.subtilis_non_proms), rev(e.coli_b.subtilis_non_proms)), collapse = ' '), n = 6)
+
+phrasetables_6 <- lapply(grep('*_ng6', x = ls(), value = T), FUN = function(x) {get.phrasetable(get(x))}) #no [1:20,]
+
+par(mfrow = c(3,2))
+ylim = c (0, .005)
+for (i in seq_along(phrasetables_6)) { #20 firsts only
+barplot(phrasetables_6[[i]]$prop[1:20]/2, names.arg = phrasetables_6[[i]]$ngrams[1:20], las = 2, main = grep('*_ng6', x = ls(), value = T)[i], ylim = ylim) #/2 since the string was repeated!
+}
+
+all_ngrams <- c()
+for (i in phrasetables_6) {
+all_ngrams <- c(all_ngrams, i$ngrams)
+}
+
+all_unique_ngrams <- sort(unique(all_ngrams))
+length(all_ngrams)
+length(all_unique_ngrams)
+
+phrasetables_6_to_pca <- as.data.frame(matrix(data = NA, nrow = length(all_unique_ngrams[1:3959]), ncol = length(phrasetables_6)))
+
+phrasetables_6_to_pca <- c()
+
+for (i in phrasetables_6) {
+
+tmp <- i
+tmp <- tmp[ order(tmp[,1]), ]
+print(str(tmp))
+ngrams <- tmp$ngrams
+
+phrasetables_6_to_pca <- cbind(phrasetables_6_to_pca, tmp$prop[1:3959]) #just for now!
+}
+
+rownames(phrasetables_6_to_pca) <- all_unique_ngrams[1:3959]
+
+colnames(phrasetables_6_to_pca) <- grep('*_ng6', x = ls(), value = T)
+###to_pca <- cbind(ngrams, phrasetables_6_ordered)
+View(phrasetables_6_to_pca)
+
+par(mfrow = c (2,2))
+
+PCA <- prcomp(phrasetables_6_to_pca[,c(1,2)], scale = T)
+autoplot(PCA,
+shape = FALSE,
+loadings = TRUE,
+label = TRUE,
+loadings.label = TRUE)+
+theme_bw()
+
+PCA <- prcomp(phrasetables_6_to_pca[,c(4,5)], scale = T)
+autoplot(PCA,
+shape = FALSE,
+loadings = TRUE,
+label = TRUE,
+loadings.label = TRUE)+
+theme_bw()
+
+PCA <- prcomp(phrasetables_6_to_pca[,c(2,5)], scale = T)
+autoplot(PCA,
+shape = FALSE,
+loadings = TRUE,
+label = TRUE,
+loadings.label = TRUE)+
+theme_bw()
+
+PCA <- prcomp(phrasetables_6_to_pca[,c(1,2)], scale = T)
+autoplot(PCA,
+shape = FALSE,
+loadings = TRUE,
+label = TRUE,
+loadings.label = TRUE)+
+theme_bw()
+```
+
+```{r promoters vs non-promoters for each bacteria}
+e.coli_proms_non_proms_mpots <- t(cbind(e.coli_proms_mpots, e.coli_non_proms_mpots))
+str(e.coli_proms_non_proms_mpots)
+
+ward_e.coli_proms_non_proms_mpots <- hclust.vector(e.coli_proms_non_proms_mpots, method = 'ward')
+plot(ward_e.coli_proms_non_proms_mpots, labels = F)
+
+colvec_e.coli_mpots <- c(rep('orange', length(e.coli_proms)),rep(e.coli_b.subtilis_non_proms, length(e.coli_non_proms)))[order.dendrogram(ward_e.coli_proms_non_proms_mpots %>% as.dendrogram )]
+
+#par(mfrow = c(2,1))
+ward_e.coli_proms_non_proms_mpots %>% as.dendrogram %>% color_branches(k = length(ward_e.coli_proms_non_proms_mpots$labels), col = colvec_e.coli_mpots) %>% set('labels_cex', 0.000001) %>% raise.dendrogram(max(ward_e.coli_proms_non_proms_mpots$height)*.2) -> to_plot_e.coli_proms_non_proms_mpots
+
+e.coli_proms_non_proms_gc1 <- t(cbind(sapply(e.coli_proms_dynchars, function(x) {x$gc1}),
+sapply(e.coli_non_proms_dynchars, function(x) {x$gc1})))
+
+ward_e.coli_proms_non_proms_gc1 <- hclust.vector(e.coli_proms_non_proms_gc1, method = 'ward')
+plot(ward_e.coli_proms_non_proms_gc1, labels =
+F)
+
+colvec_gc1 <- c(rep('orange', length(e.coli_proms_dynchars)),rep('darkred', length(e.coli_non_proms_dynchars)))[order.dendrogram(ward_e.coli_proms_non_proms_gc1 %>% as.dendrogram )]
+
+#
+ward_e.coli_proms_non_proms_gc1 %>% as.dendrogram %>% color_branches(k = length(ward_e.coli_proms_non_proms_gc1$labels), col = colvec_gc1) %>% set('labels_cex', 0.000001) %>% raise.dendrogram(max(ward_e.coli_proms_non_proms_gc1$height)*.2) -> to_plot_gc1
+
+par(mfrow = c(2,1))
+plot(to_plot_E01, main ='E. coli promoter and non-promoter mixture (E01)')
+plot(to_plot_gc1, main ='E. coli promoter and non-promoter mixture (GC)')
+legend('top', lty = 1, col = c('orange', 'darkred'), legend = c('Promoters', 'Non-promoters'), bty = 'n')
+```
